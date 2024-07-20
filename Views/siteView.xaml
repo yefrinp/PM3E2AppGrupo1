@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PM2E2Grupo1.Views.siteView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="">
+    <Grid>
+        <!--  Content Grid  -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  Header  -->
+        <Frame
+            Grid.Row="0"
+            Margin="10,10,10,10"
+            Padding="5,10,5,10"
+            BackgroundColor="{DynamicResource LightBlue70}"
+            BorderColor="Black"
+            CornerRadius="20">
+            <Label
+                x:Name="labelTitulo"
+                Margin="0,0,0,0"
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                Text=""
+                TextColor="Black"
+                VerticalOptions="Start" />
+        </Frame>
+
+
+
+        <!--  Body - Collection view  -->
+        <!--  Body - Collection view  -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout>
+                <Label
+                    Margin="0,20,0,10"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalTextAlignment="Center"
+                    Text="Foto Guardado:"
+                    TextColor="Black"
+                    VerticalOptions="Start" />
+                <Frame
+                    Margin="5,0,5,20"
+                    Padding="0,0,0,0"
+                    BackgroundColor="{DynamicResource LightBlue70}"
+                    BorderColor="Black"
+                    CornerRadius="10"
+                    HeightRequest="300">
+                    <Image x:Name="mediaElementFoto"  BackgroundColor="Azure" WidthRequest="300" HeightRequest="300" Margin="20,0,20,10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+                <Label
+                    Margin="0,20,0,10"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalTextAlignment="Center"
+                    Text="Audio Guardado:"
+                    TextColor="Black"
+                    VerticalOptions="Start" />
+                <Frame
+                    Margin="5,0,5,20"
+                    Padding="0,0,0,0"
+                    BackgroundColor="{DynamicResource LightBlue70}"
+                    BorderColor="Black"
+                    CornerRadius="20"
+                    HeightRequest="40">
+                    <toolkit:MediaElement
+                        x:Name="mediaElementAudio"
+                        Margin="0,0,0,0"
+                        Aspect="AspectFit"
+                        BackgroundColor="Transparent"
+                        HeightRequest="40"
+                        Source=""
+                        WidthRequest="300" />
+                </Frame>
+                <Label
+                    Margin="0,20,0,10"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalTextAlignment="Center"
+                    Text="Lugar:"
+                    TextColor="Black"
+                    VerticalOptions="Start" />
+                <Label
+                    x:Name="labelLugar"
+                    Margin="0,0,0,10"
+                    FontAttributes="Bold,Italic"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Text=""
+                    TextColor="Black"
+                    VerticalOptions="Start" />
+                <Button Text="Regresar a la Lista" x:Name="btnSalir" Margin="30,0,30,10" Background="#79b7b4" TextColor="White" Clicked="OnSalirClicked" CornerRadius="4"/>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+
+
+        <!--  Bottom Navigation Bar  -->
+        <Frame
+            Grid.Row="2"
+            Margin="10,10,10,10"
+            Padding="5,10,5,10"
+            BackgroundColor="Transparent"
+            BorderColor="Transparent"
+            CornerRadius="20" />
+
+    </Grid>
+</ContentPage>

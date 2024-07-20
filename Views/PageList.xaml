@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PM2E2Grupo1.Controllers"
+             x:Class="PM2E2Grupo1.Views.PageList"
+             Title="Lista de Sitios">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:Base64ToImage x:Key="Base64ToImageConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="Auto" />
+
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0">
+                <ListView x:Name="listasitios" ItemTapped="listasitioaudio_ItemTapped" RowHeight="70">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame HeightRequest="60"
+                                           WidthRequest="60"
+                                           CornerRadius="10"
+                                           BorderColor="CadetBlue"
+                                           Margin="15,0,0,0"
+                                           Grid.RowSpan="2">
+                                        <Image Source="{Binding Fotografia, Converter={StaticResource Base64ToImageConverter}}"
+                                               Aspect="AspectFill" 
+                                               WidthRequest="60" 
+                                               HeightRequest="60" 
+                                               Margin="0"/>
+                                    </Frame>
+
+                                    <Label Grid.Column="1" 
+                                           Text="{Binding Descripcion}" 
+                                           FontAttributes="Bold" 
+                                           Margin="15,0,0,0" 
+                                           VerticalOptions="Center" 
+                                           HorizontalOptions="StartAndExpand"/>
+
+                                    <Label Grid.Row="1" 
+                                           Grid.Column="1" 
+                                           VerticalOptions="Center" 
+                                           Margin="15,0,0,0">
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="Coordenadas: {0}, {1}">
+                                                <Binding Path="Latitud" />
+                                                <Binding Path="Longitud" />
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+
+            <Grid Grid.Row="1" ColumnSpacing="10" RowSpacing="10" Margin="30">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+
+
+                <Button Text="Eliminar registro" x:Name="btneliminarregistro" BackgroundColor="#990100" TextColor="White" Clicked="btneliminarregistro_Clicked" CornerRadius="4" Grid.Row="0" Grid.Column="0" />
+                <Button Text="Ver en Mapa" x:Name="btnvermapa" BackgroundColor="#79b7b4" TextColor="White" Clicked="btnvermapa_Clicked" CornerRadius="4" Grid.Row="0" Grid.Column="1" />
+
+                <Button Text="Editar Registro" x:Name="btneditar" BackgroundColor="#FFC300" TextColor="White" Clicked="btneditar_Clicked" CornerRadius="4" Grid.Row="1" Grid.Column="0" />
+                <Button Text="Ver Detalle" x:Name="btnmedia" BackgroundColor="#79b7b4" TextColor="White" Clicked="btndetalle_Clicked" CornerRadius="4" Grid.Row="1" Grid.Column="1" />
+
+            </Grid>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

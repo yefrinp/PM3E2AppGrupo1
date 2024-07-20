@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E2Grupo1.Views.PageHome"
+             xmlns:model="clr-namespace:PM2E2Grupo1.Models"
+             Title="Examen PM2 Primer Parcial"
+             BackgroundColor="DarkGreen">
+
+    <ContentPage.Content>
+        <StackLayout Background="#f2f2f2" Margin="0,50,0,0">
+        <ScrollView>
+                <StackLayout Background="#f2f2f2" Margin="0,10,0,0">
+
+                <Label HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="22">Foto del Sitio</Label>
+
+                <Image x:Name="img"  BackgroundColor="Azure" WidthRequest="150" HeightRequest="150" Margin="20,0,20,10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="btnfoto_Clicked" NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <StackLayout
+                        Margin="0,10,0,0"
+                        HorizontalOptions="Center"
+                        Orientation="Horizontal"
+                        VerticalOptions="Center">
+                     <StackLayout Margin="0,0,30,0" Orientation="Vertical">
+                                            <Label
+                                Margin="0,0,0,5"
+                                FontSize="16"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="Latitud"
+                                TextColor="Black"
+                                VerticalOptions="Start"
+                                VerticalTextAlignment="Center" />
+                                            <Label
+                                x:Name="labelLatitude"
+                                Margin="0,0,0,10"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="00.00"
+                                TextColor="Gray"
+                                VerticalOptions="Start"
+                                VerticalTextAlignment="Center" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical">
+                                            <Label
+                                Margin="0,0,0,5"
+                                FontSize="16"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="Longitud"
+                                TextColor="Black"
+                                VerticalOptions="Start"
+                                VerticalTextAlignment="Center" />
+
+                                            <Label
+                                x:Name="labelLongitude"
+                                Margin="0,0,0,10"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="00.00"
+                                TextColor="Gray"
+                                VerticalOptions="Start"
+                                VerticalTextAlignment="Center" />
+                    </StackLayout>
+                </StackLayout>
+
+                <Label Margin="30,0,0,0" FontSize="18" TextColor="Black">Descripción</Label>
+                <Frame CornerRadius="4" Margin="30, 0, 30, 10" Padding="3">
+                    <Editor x:Name="entryDescripcion"  Keyboard="Text" Placeholder="Descripción" HeightRequest="120" TextColor="Black"/>
+                </Frame>
+
+
+
+                    <StackLayout Padding="10">
+                        <Label Text="Grabar Audio"
+                           FontSize="22"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Start" />
+
+                                    <Button x:Name="btnStart"
+                            Text="Iniciar Grabación"
+                            Clicked="btnStart_Clicked"
+                            VerticalOptions="CenterAndExpand" />
+
+                                    <Button x:Name="btnStop"
+                            Text="Detener Grabación"
+                            Clicked="btnStop_Clicked"
+                            VerticalOptions="CenterAndExpand"
+                            IsEnabled="False" />
+
+                                    <Label x:Name="lblStatus"
+                           Text="Estado: Inactivo"
+                           HorizontalOptions="Center"
+                           VerticalOptions="EndAndExpand" />
+                    </StackLayout>
+
+
+
+                    <HorizontalStackLayout 
+                    Spacing="10" 
+                    Margin="0,20"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="End">
+                    <Button Text="Agregar" WidthRequest="130"  x:Name="btnAgregar" Margin="30,0,30,0" Background="darkgreen" TextColor="White" Clicked="btnAgregar_Clicked" CornerRadius="4"/>
+
+                    <Button Text="Listar Sitios" WidthRequest="130"  x:Name="btnlistar"  Margin="30,0,30,0" Background="darkgreen" TextColor="White" Clicked="OnListaClicked" CornerRadius="4"/>
+
+                </HorizontalStackLayout>
+
+                <Button Text="Salir" x:Name="btnSalir" Margin="30,0,30,10" Background="#B70D0D" TextColor="White" Clicked="OnSalirClicked" CornerRadius="4"/>
+
+            </StackLayout>
+        </ScrollView>
+
+    </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
